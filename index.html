@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    .cb { width: 200px; margin: 20px auto; }
+    input[type="button"] { width: 40px; height: 40px; margin: 2px; }
+    #mr { width: 160px; height: 40px; margin-bottom: 10px; text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="cb">
+    <input type="text" id="mr" readonly>
+    <br>
+    <input type="button" value="C" onclick="DeleteMe()">
+    <input type="button" value="(" onclick="calculator('(')">
+    <input type="button" value=")" onclick="calculator(')')">
+    <br>
+    <input type="button" value="7" onclick="calculator('7')">
+    <input type="button" value="8" onclick="calculator('8')">
+    <input type="button" value="9" onclick="calculator('9')">
+    <input type="button" value="+" onclick="calculator('+')">
+    <br>
+    <input type="button" value="4" onclick="calculator('4')">
+    <input type="button" value="5" onclick="calculator('5')">
+    <input type="button" value="6" onclick="calculator('6')">
+    <input type="button" value="-" onclick="calculator('-')">
+    <br>
+    <input type="button" value="1" onclick="calculator('1')">
+    <input type="button" value="2" onclick="calculator('2')">
+    <input type="button" value="3" onclick="calculator('3')">
+    <input type="button" value="*" onclick="calculator('*')">
+    <br>
+    <input type="button" value="0" onclick="calculator('0')">
+    <input type="button" value="." onclick="calculator('.')">
+    <input type="button" value="/" onclick="calculator('/')">
+    <input type="button" value="=" onclick="Answer()">
+  </div>
+
+  <script>
+    function DeleteMe() {
+      document.getElementById("mr").value = "";
+    }
+
+    function calculator(Newvalue) {
+      document.getElementById("mr").value += Newvalue;
+    }
+
+    function Answer() {
+      try {
+        document.getElementById("mr").value = eval(document.getElementById("mr").value);
+      } catch (e) {
+        document.getElementById("mr").value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>
