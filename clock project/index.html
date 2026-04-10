@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Mywatch">
+        <span class="h">
+
+        </span>
+        <span class="m"></span>
+<span class="date"></span>
+    </div>
+
+<script>
+function myTime(){
+    var myDate = new Date();
+    var hr = myDate.getHours();
+    var min = (myDate.getMinutes()<10) ? "0" + myDate.getMinutes() : myDate.getMinutes();
+    var sec = (myDate.getSeconds()<10) ? "0" + myDate.getSeconds() : myDate.getSeconds();
+
+    // AM/PM check
+    var M = (hr >= 12) ? "PM" : "AM";
+
+    // 12-hour format convert
+    hr = (hr % 12) || 12;
+    hr = (hr < 10) ? "0" + hr : hr;
+
+    document.querySelector(".h").textContent = hr;
+    document.querySelector(".m").textContent = ":" + min;
+    document.querySelector(".date").textContent = ":" + sec + " " + M;
+}
+
+setInterval(myTime, 1000);
+
+document.getElementsByClassName("h")[0].innerHTML = currentTime;
+</script>
+
+
+
+
+</body>
+</html>
